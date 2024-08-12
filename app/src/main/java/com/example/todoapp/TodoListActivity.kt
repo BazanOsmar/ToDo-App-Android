@@ -32,6 +32,7 @@ class TodoListActivity : AppCompatActivity() {
         const val ID = "idTask"
     }
     //Comentario para borrar
+    //Este comentario es para git
     private lateinit var binding: ActivityTodoListBinding
     private lateinit var room: TaskDatabase
     private lateinit var taskAdapter: ListTaskAdapter
