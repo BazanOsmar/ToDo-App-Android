@@ -31,7 +31,7 @@ class TodoListActivity : AppCompatActivity() {
         const val BANDERA = "banderaTask"
         const val ID = "idTask"
     }
-
+    //Comentario para borrar
     private lateinit var binding: ActivityTodoListBinding
     private lateinit var room: TaskDatabase
     private lateinit var taskAdapter: ListTaskAdapter
