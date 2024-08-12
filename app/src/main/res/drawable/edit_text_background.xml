@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    ><!-- Fondo transparente -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/color_editext_bord"/>
+    <padding android:left="20dp" android:bottom="10dp" android:top="10dp" android:right="20dp"/><!-- Color del borde -->
+    <corners android:radius="30dp"/> <!-- Borde redondeado -->
+</shape>
+

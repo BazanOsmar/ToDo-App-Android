@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/login_bakground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <ImageView
+        android:id="@+id/imgNube"
+        android:src="@drawable/img_login_nube"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="-40dp"
+        android:layout_marginTop="-100dp"/>
+    <TextView
+        android:id="@+id/tvTitleLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="50dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/font1"
+        android:text="@string/app_name"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imgLogin"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/img_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleLogin" />
+
+    <LinearLayout
+        android:id="@+id/tvContentLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="@string/title_login"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etLoginUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_background"
+            android:hint="Usuario"
+            android:paddingHorizontal="10dp"
+            android:textColor="@color/txt_content" />
+
+        <EditText
+            android:id="@+id/etLoginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="30dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:paddingHorizontal="10dp"
+            android:textColor="@color/txt_content" />
+
+        <Button
+            android:id="@+id/btnIngresarLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:text="@string/login_sign_in" />
+        <TextView
+            android:id="@+id/tvSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_sign_up"
+            android:textColor="#2196F3"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tvContentSingUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="@string/title_sign_up"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/nombre"
+                android:maxLines="1"
+                android:paddingHorizontal="10dp"
+                android:singleLine="true" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/apellidos"
+                android:maxLines="1"
+                android:paddingHorizontal="10dp"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="@string/login_email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:paddingHorizontal="10dp"
+            android:scrollHorizontally="true" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="@string/login_password"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:paddingHorizontal="10dp"
+            android:scrollHorizontally="true" />
+
+        <Button
+            android:id="@+id/btnRegistrarse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="20dp"
+            android:text="@string/login_sign_up"/>
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_login"
+            android:textColor="#2196F3"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <!--<ImageView
+        android:id="@+id/imgMode"
+        android:src="@drawable/ic_dark_mode"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"/>-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

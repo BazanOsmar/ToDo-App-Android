@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TodoApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="color">@color/white</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="android:colorBackground">@color/black</item>
+    </style>
+
+    <style name="CustomFabTheme" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="backgroundTint">@color/white</item>
+        <item name="tint">@color/black</item>
+    </style>
+
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- CardView -->
+    <LinearLayout
+        android:id="@+id/crTarea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/crdTask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="40dp"
+                app:cardCornerRadius="8dp"
+                android:backgroundTint="#3990DC"
+                android:layout_marginVertical="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingVertical="10dp"
+                    android:paddingStart="30dp">
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:text="asdf"
+                        android:textAllCaps="true"
+                        android:textColor="@color/txt_content"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:text="asdf" />
+
+                    <TextView
+                        android:id="@+id/tvDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Final de la tarea"
+                        android:maxLines="1"
+                        android:maxWidth="200dp"
+                        android:textSize="12sp" />
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/imgvComplete"
+                    android:src="@drawable/ic_complete"
+                    app:tint="@color/pending_task"
+                    android:layout_marginEnd="16dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+            </com.google.android.material.card.MaterialCardView>
+        </FrameLayout>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/vector_university"/>
+    <!-- ImageView encima de la CardView -->
+</FrameLayout>

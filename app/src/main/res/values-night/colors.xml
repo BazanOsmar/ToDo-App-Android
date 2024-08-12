@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--                Colores modo Oscuro TodoApp      -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--                Colores modo Oscuro TodoApp      -->
+    <!--Textos-->
+    <color name="txt_content">#FFFFFF</color>
+    <color name="color_editext_bord">#FFFFFF</color>
+    <color name="login_bakground">#000000</color>
+    <color name="icon_color">#FFFFFF</color>
+</resources>

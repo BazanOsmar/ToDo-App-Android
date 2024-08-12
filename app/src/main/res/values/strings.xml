@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">TodoApp</string>
+
+    <string name="title_app">TodoApp</string>
+    <string name="title_login">Inicio de Sesion</string>
+    <string name="title_sign_up">Registro</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="login_email">Correo Electronico</string>
+    <string name="login_password">Contraseña</string>
+    <string name="login_sign_in">I N G R E S A R</string>
+    <string name="login_sign_up">R E G I S T R A R S E</string>
+
+    <string name="go_login">¿Ya tienes una cuenta?</string>
+    <string name="go_sign_up">¿No tienes una cuenta?</string>
+    <string name="progress_text">Actividades para hoy</string>
+    <string name="add_task">Añade una Tarea</string>
+    <string name="title_task">Titulo de la Tarea</string>
+    <string name="description_task">Descripcion de la Tarea</string>
+    <string name="type_task">Añade una Tarea</string>
+
+    <string name="university">Universidad</string>
+    <string name="personal">Personal</string>
+    <string name="other">Otro</string>
+    <string name="button_add">Agregar</string>
+    <string name="button_add_task_activity">Agregar Tarea</string>
+
+
+    <string name="text_check_task">¿Terminaste esta tarea?</string>
+    <string name="button_check_complete">Terminada</string>
+    <string name="button_chek_cancel">En Proceso</string>
+
+    <string name="text_check_cancel">¿Quires desmarcar esta tarea?</string>
+    <string name="button_cancel_ok">Si</string>
+    <string name="button_cancel_cancel">Cancelar</string>
+
+    <string name="add_task_hint_titulo">Titulo</string>
+    <string name="add_task_hint_description">Describe tu tarea</string>
+    <string name="add_task_btn_add">AÑADIR</string>
+
+    <string name="add_task_go_out">¿Quieres guardar la tarea?</string>
+    <string name="save">Guardar</string>
+    <string name="dont_save">No guardar</string>
+</resources>

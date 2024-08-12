@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--                Colores modo Claro TodoApp      -->
+    <!--Textos-->
+    <color name="txt_content">#000000</color>
+    <color name="color_editext_bord">#000000</color>
+    <color name="login_bakground">#FFFFFF</color>
+    <color name="background">#404040</color>
+    <color name="background_dialog">#4C516C</color>
+    <color name="pending_task">#A3A5AF</color>
+    <color name="complete_task">#4CAF50</color>
+    <color name="icon_color">#000000</color>
+    <color name="transparent"> #00FFFFFF</color>
+</resources>
