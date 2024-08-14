@@ -30,10 +30,13 @@
             app:layout_constraintTop_toBottomOf="@id/etTileTask"
             app:layout_constraintStart_toStartOf="parent"/>
         <Button
+            android:id="@+id/btnEditTask"
             android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_edit"
-            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_edit"
+            android:layout_gravity="end"
+            android:textSize="16dp"
             android:background="@drawable/button_transparent"
             android:textColor="@color/black"
             android:tint="@color/white"

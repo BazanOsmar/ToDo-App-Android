@@ -19,7 +19,8 @@ class DatePicker(val listener:(day: Int, month:Int, year:Int)->Unit):DialogFragm
         val moth = c.get(Calendar.MONTH)
         val year = c.get(Calendar.YEAR)
 
-        return DatePickerDialog(activity as Context, R.style.datePicker,this, year, moth, day)
-
+        val datePick = DatePickerDialog(activity as Context, R.style.datePicker,this, year, moth, day)
+        datePick.datePicker.minDate = c.timeInMillis
+        return  datePick
     }
 }

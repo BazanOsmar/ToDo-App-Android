@@ -2,22 +2,13 @@ package com.example.todoapp
 
 import android.app.AlertDialog
 import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
-import android.util.Log
-import android.view.KeyEvent
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.activity.OnBackPressedDispatcher
-import androidx.activity.addCallback
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isGone
 import com.example.todoapp.databinding.ActivityAddTaskBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +17,10 @@ import kotlinx.coroutines.launch
 class AddTaskActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddTaskBinding
     private lateinit var room: TaskDatabase
-    private var bandera: Boolean = true
+
+
+    private var bandera: Boolean = true //bandera para saber si es una nueva tarea o una tarea existente
+    private var id: Int = 0 //Id de la tarea Existente
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddTaskBinding.inflate(layoutInflater)
@@ -37,13 +31,17 @@ class AddTaskActivity : AppCompatActivity() {
 
         if (intent.hasExtra(TodoListActivity.BANDERA) && intent.hasExtra(TodoListActivity.ID)) {
             val isValid = intent.getBooleanExtra(TodoListActivity.BANDERA, false)
-            val id = intent.getIntExtra(TodoListActivity.ID, 0)
+            id = intent.getIntExtra(TodoListActivity.ID, 0)
             if (isValid){
                 CoroutineScope(Dispatchers.IO).launch {
                     val data: Task = room.taskDao().getById(id)
                     runOnUiThread {
                         bandera = !bandera
-                        mostrarDetallesTarea(data)
+
+                        binding.etTileTask.setText(data.titleTask)
+                        binding.etContent.setText(data.description)
+                        binding.tvDate.text = data.date
+                        mostrarDetallesTarea(false)
                     }
                 }
             }
@@ -60,20 +58,22 @@ class AddTaskActivity : AppCompatActivity() {
         })
     }
 
-    private fun mostrarDetallesTarea(data: Task) {
-        binding.ContainerIconos.visibility = View.GONE
+    private fun mostrarDetallesTarea(isEditable: Boolean) {
+        if (isEditable){
+            binding.ContainerIconos.visibility = View.VISIBLE
+            binding.btnEditTask.visibility = View.GONE
+        }else{
+            binding.ContainerIconos.visibility = View.GONE
+            binding.btnEditTask.visibility = View.VISIBLE
+        }
 
 
 
 
-        binding.etTileTask.setText(data.titleTask)
-        binding.etTileTask.isEnabled = false
 
-        binding.etContent.setText(data.description)
-        binding.etContent.isEnabled = false
-
-        binding.tvDate.text = data.date
-        binding.tvDate.isClickable = false
+        binding.etTileTask.isEnabled = isEditable
+        binding.etContent.isEnabled = isEditable
+        binding.tvDate.isClickable = isEditable
     }
 
     private fun backActivity() {
@@ -89,7 +89,12 @@ class AddTaskActivity : AppCompatActivity() {
             backActivity()
         }
         binding.btnAdd.setOnClickListener {
-            saveData()
+            if (bandera){
+                saveData()
+            }else{
+                bandera = !bandera
+                updateTask(id)
+            }
         }
         binding.btnCalendar.setOnClickListener {
             val datePicKer = DatePicker{day, month, year -> updateSelected(day,month,year) }
@@ -97,6 +102,10 @@ class AddTaskActivity : AppCompatActivity() {
         }
         binding.tvDate.setOnClickListener {
             dialogQuitDate()
+        }
+        binding.btnEditTask.setOnClickListener {
+            mostrarDetallesTarea(true)
+
         }
     }
 
@@ -134,6 +143,15 @@ class AddTaskActivity : AppCompatActivity() {
             finish()
         }
         dialog.show()
+    }
+    private fun updateTask(id: Int){
+        val title = binding.etTileTask.text
+        val description = binding.etContent.text
+        val date = binding.tvDate.text
+        CoroutineScope(Dispatchers.IO).launch {
+            room.taskDao().updateTaskById(id, title.toString(), description.toString(), "Personal", date.toString())
+        }
+        finish()
     }
     private fun saveData(){
         if (binding.etTileTask.text.isNotEmpty() && binding.etContent.text.isNotEmpty()){

@@ -108,9 +108,13 @@ class TodoListActivity : AppCompatActivity() {
         intent.putExtra(ID, id)        // Long ID (o usa putExtra("id", 123) para un Int)
         startActivity(intent)
     }
-    private fun marcarCompletado(view: ImageView){
-        val dialog = Dialog(this)
-        dialog.setContentView(R.layout.item_ask_complete)
+    private fun marcarCompletado(view: ImageView, isComplete: Boolean, id: Int){
+        val dialog = Dialog(this,R.style.CustomDialogTheme)
+        if (isComplete){
+            dialog.setContentView(R.layout.item_ask_cancel)
+        }else{
+            dialog.setContentView(R.layout.item_ask_complete)
+        }
         dialog.window?.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT
@@ -118,7 +122,9 @@ class TodoListActivity : AppCompatActivity() {
         val btnCancel = dialog.findViewById<Button>(R.id.btnCancel)
         val btnComplete = dialog.findViewById<Button>(R.id.btnComplete)
         btnComplete.setOnClickListener {
-            view.setColorFilter(ContextCompat.getColor(this, R.color.complete_task));
+            CoroutineScope(Dispatchers.IO).launch {
+                room.taskDao().completedTaskById(id,!isComplete)
+            }
             dialog.hide()
         }
         btnCancel.setOnClickListener {
@@ -147,7 +153,7 @@ class TodoListActivity : AppCompatActivity() {
         dialog.show()
     }
     private fun printData(data: List<Task>) {
-        taskAdapter = ListTaskAdapter(data, {marcarCompletado(it)},{deleteTask(it)}, {verTareaCompleta(it)})
+        taskAdapter = ListTaskAdapter(data, {imagen,valor,iden -> marcarCompletado(imagen,valor, iden)},{deleteTask(it)}, {verTareaCompleta(it)})
         binding.rvListaDeActividades.layoutManager = LinearLayoutManager(this)
         binding.rvListaDeActividades.adapter = taskAdapter
     }

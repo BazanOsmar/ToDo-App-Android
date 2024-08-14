@@ -8,7 +8,11 @@
 
     <style name="Theme.TodoApp" parent="Base.Theme.TodoApp" />
     <style name="datePicker" parent="android:Theme.Material.Light.Dialog">
-        <item name="colorOnPrimary">#00BCD4</item>
-        <item name="android:colorAccent">#0F25F3</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="android:colorAccent">#616161</item>
     </style>
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+
 </resources>
